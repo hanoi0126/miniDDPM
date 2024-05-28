@@ -1,39 +1,35 @@
 FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+
 ENV DEBIAN_FRONTEND=noninteractive
 
-
-RUN apt update
-RUN apt upgrade -y
-
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-
-RUN apt-get update \
-        && apt-get install -y git tzdata
 
 RUN date
 
 # ubuntu package install 
-RUN apt install -y --no-install-recommends \
-        build-essential \
-        ca-certificates \
-        curl \
-        libffi-dev \
-        libssl-dev \
-	    libbz2-dev \
-        python3-pip \
-        python3-setuptools \
-        wget \
-        git \
-        tzdata \
-        libgl1-mesa-dev \
-        zlib1g-dev \
-        libncurses5-dev \
-        libgdbm-dev \
-        libnss3-dev \
-        libreadline-dev \
-        libffi-dev \
-	    libsqlite3-dev \
-        liblzma-dev
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y --no-install-recommends \
+    build-essential \
+    ca-certificates \
+    curl \
+    libffi-dev \
+    libssl-dev \
+    libbz2-dev \
+    python3-pip \
+    python3-setuptools \
+    wget \
+    git \
+    tzdata \
+    libgl1-mesa-dev \
+    zlib1g-dev \
+    libncurses5-dev \
+    libgdbm-dev \
+    libnss3-dev \
+    libreadline-dev \
+    libffi-dev \
+    libsqlite3-dev \
+    liblzma-dev
 
 ARG PYTHON_VERSION="3.10.11"
 
